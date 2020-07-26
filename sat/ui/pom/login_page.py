@@ -36,15 +36,22 @@ class Search(Base):
     KW = (By.ID, 'kw')
     SU = (By.ID, 'su')
 
+    def __init__(self, driver, url):
+        super().__init__(driver=driver, url=url)
+
     def get_elemnt_kw(self):
+        print(self.find_element(*self.KW).get_attribute("s_ipt"))
         return self.find_element(*self.KW)
 
+
     def get_elemnt_su(self):
+
         return self.find_element(*self.SU)
 
     def search_txt(self,txt):
         self.get_elemnt_kw().send_keys(txt)
         self.get_elemnt_su().click()
+        # self.driver.quit()
 
 # tt = Search()
 # tt.search(txt='abc')

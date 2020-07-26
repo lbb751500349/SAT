@@ -51,9 +51,13 @@ from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 
 class Base(object):
-    def __init__(self):
-        self.driver = webdriver.Chrome(r'D:\Study\google\chromedriver.exe')
-        self.driver.get(r'https://www.baidu.com/')
+    def __init__(self, driver, url):
+        # self.driver = webdriver.Chrome(r'D:\Study\google\chromedriver.exe')
+        # self.driver = webdriver.Chrome(r'D:\Study\google\chromedriver.exe')
+        # self.driver.get(r'https://www.baidu.com/')
+        self.driver = driver
+        self.driver.get(url)
 
     def find_element(self,*args):
         return self.driver.find_element(*args)
+

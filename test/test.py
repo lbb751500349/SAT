@@ -30,15 +30,49 @@ from ddt import ddt,data
 
 from sat.ui.pom.login_page import Search
 
+from selenium import webdriver
 
-@ddt()
-class Test_Search_txt(unittest.TestCase):
-    @data("d", "t")
-    def test01(self,txt):
-        Search.search_txt(txt)
-        time.sleep(3)
 
+
+# @ddt()
+class Search_txt(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        print("类第一次运行")
+
+    @classmethod
+    def tearDownClass(cls):
+        print("类第2次运行")
+
+
+    def setUp(self):
+        self.driver = webdriver.Chrome(r'D:\Study\google\chromedriver.exe')
+        # driver.get(r'https://www.baidu.com/')
+        self.url = r'https://www.baidu.com/'
+
+    # @data("d", "t")
+    # def test01(self,txt):
+    #     Search(self.driver,self.url).search_txt(txt)
+    #     time.sleep(3)
+
+    def test_first(self):
+        print("第一条case")
+
+    def test_second(self):
+        print("第2条case")
+
+    def tearDown(self):
+        self.driver.close()
+        self.driver.quit()
 
 if __name__ == '__main__':
-    unittest.main()
-
+    # unittest.main()
+    # suite = unittest.TestSuite()
+    # suite.addTest(Search_txt("test_second"))
+    # 第一次未把TextTestRunner实例化TextTestRunner()
+    # 第二次忘记了TextTestRunner方法了
+    # unittest.TextTestRunner().run(suite)
+    suite = unittest.TestSuite()
+    suite.addTest(Search_txt("test_second"))
+    unittest.TextTestRunner().run(suite)

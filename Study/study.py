@@ -8,6 +8,9 @@
 @time: 2020/7/2 19:01
 """
 
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
 
 from Study import settings
 
@@ -33,9 +36,10 @@ def run_selenium():
     driver.maximize_window()
     driver.get(r'https://www.baidu.com/')
     driver.implicitly_wait(time_to_wait=2)
-    driver.find_element(By.ID, 'kw').send_keys('d')
-    time.sleep(2)
+    # driver.find_element(By.ID, 'kw').send_keys('d')
+    time.sleep(1)
     driver.find_element(By.ID, 'su').click()
+    print(driver.find_element(By.ID, 'su').get_attribute("value"))
     time.sleep(2)
     driver.close()
     driver.quit()
