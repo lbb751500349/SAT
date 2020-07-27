@@ -39,11 +39,11 @@ class Search_txt(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        print("test类第一次运行")
+        print("test02类第一次运行")
 
     @classmethod
     def tearDownClass(cls):
-        print("test类第2次运行")
+        print("test02类第2次运行")
 
 
     def setUp(self):
@@ -58,21 +58,22 @@ class Search_txt(unittest.TestCase):
     #     Search(self.driver,self.url).search_txt(txt)
     #     time.sleep(3)
 
-    def test_first(self):
-        print("test第一条case111")
+    def test_first02(self):
+        print("test02第一条case111")
 
     @unittest.skip("跳过第二条")
-    def test_second(self):
-        print("test第2条case")
+    def test_second02(self):
+        print("test02第2条case")
 
-    def test_second(self):
-        print("test第3条case")
+    def test_second02(self):
+        print("test02第3条case")
 
 
     def tearDown(self):
-        pass
         # self.driver.close()
         # self.driver.quit()
+        pass
+
 
 # if __name__ == '__main__':
 #     # unittest.main()
@@ -81,6 +82,6 @@ class Search_txt(unittest.TestCase):
 #     # 第一次未把TextTestRunner实例化TextTestRunner()
 #     # 第二次忘记了TextTestRunner方法了
 #     # unittest.TextTestRunner().run(suite)
-    suite = unittest.TestSuite()
-    suite.addTest(Search_txt("test_second"))
-    unittest.TextTestRunner().run(suite)
+#     suite = unittest.TestSuite()
+#     suite.addTest(Search_txt("test_second"))
+#     unittest.TextTestRunner().run(suite)
