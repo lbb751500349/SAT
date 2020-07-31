@@ -3,7 +3,7 @@
 """
   @desc: 测试类
   @author: Amio_
-  @file: test03.py
+  @file: testt.py
   @date: 2017/12/18 12:06
 """
 # import time
@@ -25,13 +25,15 @@
 #     tt =Test()
 #     tt.test_login()
 import time
-import unittest
+
 from ddt import ddt,data
 
 from sat.ui.pom.login_page import Search
 
 from selenium import webdriver
-
+import os
+import unittest
+import HTMLTestRunner
 
 
 # @ddt()
@@ -74,13 +76,13 @@ class Search_txt(unittest.TestCase):
         # self.driver.close()
         # self.driver.quit()
 
-# if __name__ == '__main__':
+if __name__ == '__main__':
+    # 批量执行case并生成测试报告
+    suite = unittest.defaultTestLoader.discover(os.getcwd(),pattern="test*.py")
+    unittest.TextTestRunner().run(suite)
 #     # unittest.main()
 #     # suite = unittest.TestSuite()
 #     # suite.addTest(Search_txt("test_second"))
 #     # 第一次未把TextTestRunner实例化TextTestRunner()
 #     # 第二次忘记了TextTestRunner方法了
 #     # unittest.TextTestRunner().run(suite)
-    suite = unittest.TestSuite()
-    suite.addTest(Search_txt("test_second"))
-    unittest.TextTestRunner().run(suite)

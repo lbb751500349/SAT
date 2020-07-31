@@ -3,7 +3,7 @@
 """
   @desc: 测试类
   @author: Amio_
-  @file: test03.py
+  @file: testt.py
   @date: 2017/12/18 12:06
 """
 # import time
@@ -66,7 +66,9 @@ class Search_txt(unittest.TestCase):
         print("test01第2条case")
 
     def test_second01(self):
+
         print("test01第3条case")
+        self.assertFalse(True,"故意错误")
 
 
     def tearDown(self):
