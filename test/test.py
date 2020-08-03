@@ -24,16 +24,12 @@
 # if __name__ == "__main__":
 #     tt =Test()
 #     tt.test_login()
-import time
 
-from ddt import ddt,data
 
-from sat.ui.pom.login_page import Search
 
-from selenium import webdriver
-import os
+
 import unittest
-import HTMLTestRunner
+
 
 
 # @ddt()
@@ -41,11 +37,11 @@ class Search_txt(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        print("test类第一次运行")
+        print(u"test类第一次运行")
 
     @classmethod
     def tearDownClass(cls):
-        print("test类第2次运行")
+        print(u"test类第2次运行")
 
 
     def setUp(self):
@@ -61,14 +57,14 @@ class Search_txt(unittest.TestCase):
     #     time.sleep(3)
 
     def test_first(self):
-        print("test第一条case111")
+        print(u"test第一条case111")
 
-    @unittest.skip("跳过第二条")
+    # @unittest.skip("跳过第二条")
     def test_second(self):
-        print("test第2条case")
+        print(u"test第2条case")
 
-    def test_second(self):
-        print("test第3条case")
+    def test_thrid(self):
+        print(u"test第3条case")
 
 
     def tearDown(self):
@@ -78,11 +74,11 @@ class Search_txt(unittest.TestCase):
 
 if __name__ == '__main__':
     # 批量执行case并生成测试报告
-    suite = unittest.defaultTestLoader.discover(os.getcwd(),pattern="test*.py")
+    # suite = unittest.defaultTestLoader.discover(os.getcwd(),pattern="test*.py")
+    # unittest.TextTestRunner().run(suite)
+    # unittest.main()
+    suite = unittest.TestSuite()
+    suite.addTest(Search_txt("test_first"))
+    # 第一次未把TextTestRunner实例化TextTestRunner()
+    # 第二次忘记了TextTestRunner方法了
     unittest.TextTestRunner().run(suite)
-#     # unittest.main()
-#     # suite = unittest.TestSuite()
-#     # suite.addTest(Search_txt("test_second"))
-#     # 第一次未把TextTestRunner实例化TextTestRunner()
-#     # 第二次忘记了TextTestRunner方法了
-#     # unittest.TextTestRunner().run(suite)

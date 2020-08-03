@@ -9,7 +9,7 @@ class Run_Unittest(unittest.TestCase):
 
     def test_case(self):
         # 凉了
-        current_path = os.path.join(os.getcwd(), '')
+        current_path = os.getcwd()
         suite = unittest.defaultTestLoader.discover(current_path, pattern='test0*.py')
         f_p = os.path.join(current_path + '\\Report\\'+"report.html")
         with open(f_p, 'wb') as fp:

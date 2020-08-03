@@ -46,23 +46,38 @@
 #
 #
 # run_selenium()
+
+
+# # selenium demmo
+# import time
+# from selenium import webdriver
+# from selenium.webdriver.common.by import By
+#
+#
+# driver = webdriver.Chrome(r'D:\Study\google\chromedriver.exe')
+# driver.get(r'https://www.baidu.com/')
+#
+# driver.find_element(By.ID,'kw').send_keys('a')
+# driver.find_element(By.ID,'su').click()
+#
+# time.sleep(2)
+# driver.quit()
+
 import os
+import unittest
+import HTMLTestRunner
+from test import Screenshop
 
-report_path = os.path.join(os.getcwd() + '\\Report\\' + 'report.html')
-print(report_path)
-report_file = open(report_path, 'wb')
-report_file.close()
+class Ttt(unittest.TestCase):
+    suitet = unittest.TestSuite()
+    suitet.addTest(Screenshop.Test_Feature('test01'))
+    # suitet = unittest.defaultTestLoader.discover(start_dir=r'D:\Study\SAT\test\\', pattern='Screenshop.py')
+    current_path = os.getcwd()
+    print(current_path)
+    f_p = os.path.join(current_path + '\\Report\\' + "report2.html")
+    with open(f_p, 'wb') as fp:
+        hr = HTMLTestRunner.HTMLTestRunner(stream=fp, title="测试2", description="啥几把万一")
+        hr.run(suitet)
 
-import time
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-
-
-driver = webdriver.Chrome(r'D:\Study\google\chromedriver.exe')
-driver.get(r'https://www.baidu.com/')
-
-driver.find_element(By.ID,'kw').send_keys('a')
-driver.find_element(By.ID,'su').click()
-
-time.sleep(2)
-driver.quit()
+if __name__ == '__main__':
+    unittest.main()
