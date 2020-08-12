@@ -47,7 +47,7 @@
 #             return WebDriverWait(driver=self._driver, timeout=timeout)
 
 
-from selenium import webdriver
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
 class Base(object):
@@ -59,5 +59,9 @@ class Base(object):
         self.driver.get(url)
 
     def find_element(self,*args):
-        return self.driver.find_element(*args)
+        return self._wait_time().until(EC.visibility_of_element_located(*args))
+
+
+    def _wait_time(self):
+        return WebDriverWait(driver=self.driver, timeout=2)
 

@@ -26,7 +26,7 @@
 #         self.send_keys(webElement=self.find_element(*self.PASSWORD), keys='123')
 #         self.find_element(*self.SUBMIT_BTN).click()
 
-
+import time
 from selenium.webdriver.common.by import By
 
 from sat.ui.base.base_page import Base
@@ -40,18 +40,12 @@ class Search(Base):
         super().__init__(driver=driver, url=url)
 
     def get_elemnt_kw(self):
-        print(self.find_element(*self.KW).get_attribute("s_ipt"))
-        return self.find_element(*self.KW)
-
+        return self.find_element(self.KW)
 
     def get_elemnt_su(self):
-
-        return self.find_element(*self.SU)
+        return self.find_element(self.SU)
 
     def search_txt(self,txt):
         self.get_elemnt_kw().send_keys(txt)
         self.get_elemnt_su().click()
-        # self.driver.quit()
 
-# tt = Search()
-# tt.search(txt='abc')
