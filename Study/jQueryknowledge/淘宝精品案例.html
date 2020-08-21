@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.3.1/jquery-3.3.1.js"></script>
+</head>
+<body>
+<div class="wr">
+    <ul id="left">
+        <li><a herf="#">第一个</a></li>
+        <li><a herf="#">第二个</a></li>
+        <li><a herf="#">第三个</a></li>
+    </ul>
+<div id="content">
+    <div>
+        <a href="#"><img src="123.png"></a>
+    </div>
+    <div>
+        <a href="#"><img src="favicon.ico"></a>
+    </div>
+    <div>
+        <a href="#"><img src="234.png"></a>
+    </div>
+</div>
+</div>
+<script>
+    $(function(){
+        $("#left li").mouseover(function(){
+            console.log($(this).index())
+            })
+    })
+</script>
+<!--<script>-->
+    <!--$(function(){-->
+        <!--$("#left li").mouseover(function(){-->
+                <!--var index = $(this).index();-->
+                <!--console.log(index);-->
+                <!--$("#content div").eq(index).show();-->
+                <!--$("#content div").eq(index).siblings().hide();-->
+        <!--})-->
+    <!--})-->
+<!--</script>-->
+</body>
+</html>

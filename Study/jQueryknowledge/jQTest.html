@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.3.1/jquery-3.3.1.js"></script>
+    <script src="jQuerytest.js"></script>
+    <style>
+        div{
+        height:200px;
+        width:100px;
+        background-color:red;
+        }
+    </style>
+</head>
+<body>
+<script>
+    // 等着DOM主要元素加载完毕在运行
+    $(function(){
+        $('div').hide();
+    })
+</script>
+<script>
+    // $是jQuery的别名,上面代码也可以写成
+    <!--jQuery(function(){-->
+    <!--jQuery('div').hide();-->
+    <!--})-->
+    // $也是jQuery的顶级对象
+    // DOM对象，是通过原生js获取的对象
+    // jQuery对象，是通过jQuery获取的对象
+    // DOM对象和jQuery对象的方法及属性不可串了，只能单独引用各自的，否则console会报错滴！！！
+
+</script>
+<div></div>
+</body>
+</html>
